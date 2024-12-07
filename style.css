@@ -1,0 +1,230 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+:root {
+  --primaryColor: #6d28d9;
+  --secondaryColor: #ede9fe;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #7c7c7c;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+  --mainRed: #db2777;
+  --bodyColor: #e3e0e0;
+}
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: var(--bodyColor);
+}
+html {
+  font-size: 62.5%;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: var(--secondaryColor);
+  top: 0;
+  position: sticky;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-center {
+  font-weight: bold;
+  font-size: 2rem;
+  width: 100%;
+  max-width: 1170px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-icon {
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+.cart-btn {
+  position: relative;
+}
+.cart-items {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background-color: red;
+  color: white;
+  /* padding: 0.3rem; */
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+/* PRODUCTS */
+.products {
+  padding: 4rem;
+  margin-top: 2rem;
+}
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.product-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 3rem;
+  grid-row-gap: 5rem;
+}
+.product {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.product-img {
+  display: block;
+  width: 100%;
+}
+.product-desc {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5rem;
+  color: var(--primaryColor);
+  padding: 1.5rem;
+}
+.btn {
+  background-color: var(--primaryColor);
+  color: white;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.product .btn{
+  margin: 20px 60px;
+
+}
+
+/* CART */
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 5;
+}
+.cart {
+  width: 40rem;
+  height: auto;
+  background-color: white;
+  position: absolute;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 20px 120px rgba(0, 0, 0, 0.07);
+  z-index: 20;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  top: -100%;
+  /* position: absolute; */
+  left: 30%;
+}
+.cart-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
+.cart-item-img {
+  width: 150px;
+  border-radius: 8px;
+}
+.cart-item-desc {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.cart-item-desc h5 {
+  color: var(--mainGrey);
+}
+.cart-item-controller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.fa-chevron-up,
+.fa-chevron-down,
+.fa-trash-alt {
+  cursor: pointer;
+}
+.fa-chevron-up {
+  color: var(--primaryColor);
+}
+.fa-chevron-down {
+  color: var(--mainRed);
+}
+.fa-trash-alt {
+color: var(--mainRed);
+font-size: 1.5rem;
+}
+.cart-footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5rem 3rem 0;
+}
+.cart-total{
+  font-size: 1.4rem;
+}
+.clear-cart{
+  background-color: #fff;
+  color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  transition: all 0.3s ease-in-out;
+}
+.cart-item-confirm{
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+  transition: all 0.3s ease-in-out;
+}
+.clear-cart:hover,
+.cart-item-confirm:hover{
+  color: #fff;
+  background-color: var(--primaryColor);
+}
+@media (max-width: 600px) {
+  .cart {
+    left: 5% !important;
+    max-width: 50rem;
+    width: calc(100vw - 2rem);
+    padding: 0;
+  }
+}
